@@ -1,8 +1,8 @@
 "use strict";
 
+import path from 'path'
 import { app, BrowserWindow } from "electron";
 import MenuBuilder from "./menu";
-
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 // Global reference to mainWindow
@@ -57,4 +57,7 @@ app.on("ready", () => {
   mainWindow = createMainWindow();
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
+  if (isDevelopment) {
+    BrowserWindow.addDevToolsExtension(path.resolve(process.env.AppData,"../", `Local/Google/Chrome/User Data/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/2.5.2_0`));
+  }
 });

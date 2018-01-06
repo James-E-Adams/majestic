@@ -64,7 +64,7 @@ export class Workspace {
     //Listen for event from main process. 
     ipcRenderer.on('openProject', () => {
       this.openProject();
-  });
+    });
   }
 
   initializeRunner() {
